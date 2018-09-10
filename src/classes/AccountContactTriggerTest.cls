@@ -80,13 +80,11 @@ private class AccountContactTriggerTest {
             if (i < 100){
                 accountContact.Account__c = accounts[i].Id;
                 accountContact.Contact__c = contacts[i].Id;
-                accountContact.isPrimary__c = false;
                 firstHalfListAccountContactsForInsert.add(accountContact);
             }
             else {
                 accountContact.Account__c = accounts[i].Id;
                 accountContact.Contact__c = contacts[i-100].Id;
-                accountContact.isPrimary__c = true;
                 secondHalfListAccountContactsForInsert.add(accountContact);
             }
         }
