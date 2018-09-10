@@ -131,4 +131,15 @@ public with sharing class AccountContactService{
                 FROM AccountContact__c
                 WHERE Account__c IN : accountsIds];
     }
+
+    public void deletingContact(List<Contact> oldContacts) {
+        Set<Id> contactsIds = new Set<Id>();
+        for (Contact contact : oldContacts) {
+            contactsIds.add(contact.Id);
+        }
+        delete [
+                SELECT Id
+                FROM AccountContact__c
+                WHERE Contact__c IN : contactsIds];
+    }
 }
