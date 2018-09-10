@@ -23,10 +23,8 @@ public with sharing class AccountContactService{
                 accountContactsWithIsPrimaryFieldFalse.add(accountContact);
             }
         }
-
         List<AccountContact__c> accountContacts = this.getAccountContacts(contactsIdsSet);
         Map<Id, List<AccountContact__c>> accountContactsListByContactId = this.getAccountContactsListByContactIdMap(accountContacts);
-
         for(AccountContact__c accountContact: accountContactsWithIsPrimaryFieldTrue){
             List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
             if(accountContactsList != null){
