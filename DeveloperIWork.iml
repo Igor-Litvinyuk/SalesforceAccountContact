@@ -28,10 +28,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="AccountHandler" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="AccountContactService" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -41,6 +37,14 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="AccountContactTriggerTest" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AccountHandler" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AccountTriggerTest" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
@@ -62,6 +66,10 @@
                         <list>
                           <MetadataEntry>
                             <option name="name" value="AccountContactTrigger" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="AccountTrigger" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>

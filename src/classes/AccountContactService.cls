@@ -120,4 +120,15 @@ public with sharing class AccountContactService{
         }
         return resultMap;
     }
+
+    public void deletingAccount(List<Account> oldAccounts) {
+        Set<Id> accountsIds = new Set<Id>();
+        for (Account account : oldAccounts) {
+            accountsIds.add(account.Id);
+        }
+        delete [
+                SELECT Id
+                FROM AccountContact__c
+                WHERE Account__c IN : accountsIds];
+    }
 }

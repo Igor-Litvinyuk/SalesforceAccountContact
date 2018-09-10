@@ -183,7 +183,7 @@ private class AccountContactTriggerTest {
         System.assertEquals(0, verifyAccountContacts.size());
     }
 
-    public static void accountAndContactInserting(){
+    private static void accountAndContactInserting(){
         for(Integer i = 0; i < 200; i++) {
             Account account = new Account(Name = 'Test Account ' + i);
             accounts.add(account);
