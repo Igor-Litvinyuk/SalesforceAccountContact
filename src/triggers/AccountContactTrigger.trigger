@@ -11,9 +11,12 @@ trigger AccountContactTrigger on AccountContact__c (before insert, after update,
             handler.onBeforeInsert(Trigger.new);
         }
     }
-    else  if(Trigger.isAfter){
+    else if(Trigger.isAfter){
         if(Trigger.isUpdate){
-            handler.onAfterUpdate(Trigger.old, Trigger.new);
+            if(State.isFirstRun){
+                handler.onAfterUpdate(Trigger.old, Trigger.new);
+                State.isFirstRun = false;
+            }
         }
         else if(Trigger.isDelete){
             handler.onAfterDelete(Trigger.old);

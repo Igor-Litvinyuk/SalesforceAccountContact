@@ -29,7 +29,7 @@ private class ContactTriggerTest {
     }
 
     private static void accountAndContactInserting(){
-        for(Integer i = 0; i < 200; i++) {
+        for (Integer i = 0; i < 200; i++) {
             Account account = new Account(Name = 'Test Account ' + i);
             accounts.add(account);
             Contact contact = new Contact(LastName = 'Test Contact ' + i);

@@ -55,6 +55,10 @@
                             <option name="name" value="ContactTriggerTest" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="State" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
                         </list>
                       </option>
                       <option name="name" value="ApexClass" />

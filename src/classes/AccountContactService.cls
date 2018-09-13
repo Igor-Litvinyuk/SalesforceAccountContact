@@ -3,7 +3,6 @@
  */
 
 public with sharing class AccountContactService{
-    private static boolean isUpdate = false;
 
     public void insertingNewAccountContacts(List<AccountContact__c> newAccountContacts) {
         Set<Id> contactsIdsSet = this.getContactIdsSet(newAccountContacts);
@@ -25,45 +24,23 @@ public with sharing class AccountContactService{
         }
         List<AccountContact__c> accountContacts = this.getAccountContacts(contactsIdsSet);
         Map<Id, List<AccountContact__c>> accountContactsListByContactId = this.getAccountContactsListByContactIdMap(accountContacts);
-        for(AccountContact__c accountContact: accountContactsWithIsPrimaryFieldTrue){
+        for (AccountContact__c accountContact: accountContactsWithIsPrimaryFieldTrue){
             List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
-            if(accountContactsList != null){
+            if (accountContactsList != null){
                 accountContact.IsPrimary__c = false;
             }
         }
 
-        for(AccountContact__c accountContact: accountContactsWithIsPrimaryFieldFalse){
+        for (AccountContact__c accountContact: accountContactsWithIsPrimaryFieldFalse){
             List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
-            if(accountContactsList == null){
+            if (accountContactsList == null){
                 accountContact.IsPrimary__c = true;
             }
         }
     }
 
     public void updatingAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = new List<AccountContact__c>();
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = new List<AccountContact__c>();
-        for (Integer i = 0; i < oldAccountContacts.size(); i++){
-            if (oldAccountContacts[i].isPrimary__c == false && newAccountContacts[i].isPrimary__c == true){
-                accountContactsWithIsPrimaryFieldTrue.add(oldAccountContacts[i]);
-            }
-            else {
-                accountContactsWithIsPrimaryFieldFalse.add(oldAccountContacts[i]);
-            }
-        }
-        Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrue);
-        List<AccountContact__c> allAccountContactsWithIsPrimaryFieldTrue = this.getAccountContacts(contactsIdsSetWithIsPrimaryFieldTrue);
-        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldTrue = this.getAccountContactsListByContactIdMap(allAccountContactsWithIsPrimaryFieldTrue);
-        List<AccountContact__c> accountContactsForUpdateTrueToFalse = new List<AccountContact__c>();
-        for(AccountContact__c accountContact: accountContactsWithIsPrimaryFieldTrue){
-            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldTrue.get(accountContact.Contact__c);
-            accountContactsList[0].isPrimary__c = false;
-            accountContactsForUpdateTrueToFalse.add(accountContactsList[0]);
-        }
-        if (isUpdate == false){
-            update accountContactsForUpdateTrueToFalse;
-            isUpdate = true;
-        }
+
     }
 
     public void deletingAccountContacts(List<AccountContact__c> oldAccountContacts) {
@@ -81,9 +58,8 @@ public with sharing class AccountContactService{
             for (Id contactId : contactsIdsSetWithIsPrimaryFieldTrue){
                 List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(contactId);
                 if (accountContactsList.size() > 0){
-                    Integer lastIndex = accountContactsList.size()-1;
-                    accountContactsList[lastIndex].isPrimary__c = true;
-                    accountContactsForUpdate.addAll(accountContactsList);
+                    accountContactsList[0].isPrimary__c = true;
+                    accountContactsForUpdate.add(accountContactsList[0]);
                 }
             }
             update accountContactsForUpdate;
