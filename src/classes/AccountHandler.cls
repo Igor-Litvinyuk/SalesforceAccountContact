@@ -6,6 +6,6 @@ public with sharing class AccountHandler {
     AccountContactService service = new AccountContactService();
 
     public void onBeforeDelete(List<Account> oldAccounts) {
-        service.deletingAccount(oldAccounts);
+        service.deleteAccountContactViaAccount(oldAccounts);
     }
 }

@@ -32,10 +32,6 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="AccountContactException" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="AccountContactTriggerTest" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -53,10 +49,6 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="ContactTriggerTest" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="State" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>

@@ -27,9 +27,7 @@ private class AccountTriggerTest {
             accountContactsForInsert.add(accountContact);
         }
         insert accountContactsForInsert;
-        Test.startTest();
         delete accounts;
-        Test.stopTest();
         List<AccountContact__c> verifyAccountContacts = [SELECT Id FROM AccountContact__c];
         System.assertEquals(0, verifyAccountContacts.size());
         List<Account> verifyAccounts = [SELECT Id FROM Account];

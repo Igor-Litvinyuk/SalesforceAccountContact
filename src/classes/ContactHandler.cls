@@ -6,6 +6,6 @@ public with sharing class ContactHandler {
     AccountContactService service = new AccountContactService();
 
     public void onBeforeDelete(List<Contact> oldContacts) {
-        service.deletingContact(oldContacts);
+        service.deleteAccountContactViaContact(oldContacts);
     }
 }

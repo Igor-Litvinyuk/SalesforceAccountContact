@@ -4,53 +4,27 @@
 
 public with sharing class AccountContactService{
 
-    public void insertingNewAccountContacts(List<AccountContact__c> newAccountContacts) {
+    public void insertNewAccountContacts(List<AccountContact__c> newAccountContacts) {
         Set<Id> contactsIdsSet = this.getContactIdsSet(newAccountContacts);
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap = this.getAccountContactsListByContactIdMap(newAccountContacts);
-        for (Id contactId : contactsIdsSet){
-            if (accountContactsListByContactIdMap.get(contactId).size() > 1){
-                throw new AccountContactException('AccountContact with same Contact already exists!');
-            }
-        }
+        this.checkCountOfSameContactsFromTrigger(contactsIdsSet, accountContactsListByContactIdMap);
 
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = new List<AccountContact__c>();
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = new List<AccountContact__c>();
-        for (AccountContact__c accountContact : newAccountContacts) {
-            if (accountContact.IsPrimary__c == true) {
-                accountContactsWithIsPrimaryFieldTrue.add(accountContact);
-            } else {
-                accountContactsWithIsPrimaryFieldFalse.add(accountContact);
-            }
-        }
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = getAccountContactsListWithIsPrimaryFieldTrue(newAccountContacts);
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = getAccountContactsListWithIsPrimaryFieldFalse(newAccountContacts);
+
         List<AccountContact__c> accountContacts = this.getAccountContacts(contactsIdsSet);
         Map<Id, List<AccountContact__c>> accountContactsListByContactId = this.getAccountContactsListByContactIdMap(accountContacts);
-        for (AccountContact__c accountContact: accountContactsWithIsPrimaryFieldTrue){
-            List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
-            if (accountContactsList != null){
-                accountContact.IsPrimary__c = false;
-            }
-        }
-
-        for (AccountContact__c accountContact: accountContactsWithIsPrimaryFieldFalse){
-            List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
-            if (accountContactsList == null){
-                accountContact.IsPrimary__c = true;
-            }
-        }
+        this.changeIsPrimaryFieldOnAccountContactsToFalse(accountContactsWithIsPrimaryFieldTrue, accountContactsListByContactId);
+        this.changeIsPrimaryFieldOnAccountContactsToTrue(accountContactsWithIsPrimaryFieldFalse, accountContactsListByContactId);
     }
 
-    public void updatingAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
+    public void updateAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
 
     }
 
-    public void deletingAccountContacts(List<AccountContact__c> oldAccountContacts) {
-        List<AccountContact__c> allAccountContactsWithIsPrimaryFieldTrue = new List<AccountContact__c>();
-        for (Integer i = 0; i < oldAccountContacts.size(); i++){
-            if (oldAccountContacts[i].isPrimary__c == true){
-                allAccountContactsWithIsPrimaryFieldTrue.add(oldAccountContacts[i]);
-            }
-        }
-        Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = this.getContactIdsSet(allAccountContactsWithIsPrimaryFieldTrue);
+    public void deleteAccountContacts(List<AccountContact__c> oldAccountContacts) {
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = getAccountContactsListWithIsPrimaryFieldTrue(oldAccountContacts);
+        Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrue);
         List<AccountContact__c> allAccountContactsWithSameContacts = this.getAccountContacts(contactsIdsSetWithIsPrimaryFieldTrue);
         if (allAccountContactsWithSameContacts.size() != 0){
             Map<Id, List<AccountContact__c>> accountContactsListByContactId = this.getAccountContactsListByContactIdMap(allAccountContactsWithSameContacts);
@@ -63,6 +37,36 @@ public with sharing class AccountContactService{
                 }
             }
             update accountContactsForUpdate;
+        }
+    }
+
+    public void deleteAccountContactViaAccount(List<Account> oldAccounts) {
+        Set<Id> accountsIds = new Set<Id>();
+        for (Account account : oldAccounts) {
+            accountsIds.add(account.Id);
+        }
+        List<AccountContact__c> accountContacts = [
+                SELECT Id
+                FROM AccountContact__c
+                WHERE Account__c IN : accountsIds
+        ];
+        if (!accountContacts.isEmpty()){
+            delete accountContacts;
+        }
+    }
+
+    public void deleteAccountContactViaContact(List<Contact> oldContacts) {
+        Set<Id> contactsIds = new Set<Id>();
+        for (Contact contact : oldContacts) {
+            contactsIds.add(contact.Id);
+        }
+        List<AccountContact__c> accountContacts = [
+                SELECT Id
+                FROM AccountContact__c
+                WHERE Contact__c IN : contactsIds
+        ];
+        if (!accountContacts.isEmpty()){
+            delete accountContacts;
         }
     }
 
@@ -97,25 +101,52 @@ public with sharing class AccountContactService{
         return resultMap;
     }
 
-    public void deletingAccount(List<Account> oldAccounts) {
-        Set<Id> accountsIds = new Set<Id>();
-        for (Account account : oldAccounts) {
-            accountsIds.add(account.Id);
+    private void checkCountOfSameContactsFromTrigger(Set<Id> contactsIdsSet, Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap){
+        for (Id contactId : contactsIdsSet){
+            if (accountContactsListByContactIdMap.get(contactId).size() > 1){
+                throw new AccountContactException('AccountContact with same Contact already exists!');
+            }
         }
-        delete [
-                SELECT Id
-                FROM AccountContact__c
-                WHERE Account__c IN : accountsIds];
     }
 
-    public void deletingContact(List<Contact> oldContacts) {
-        Set<Id> contactsIds = new Set<Id>();
-        for (Contact contact : oldContacts) {
-            contactsIds.add(contact.Id);
+    private List<AccountContact__c> getAccountContactsListWithIsPrimaryFieldTrue(List<AccountContact__c> newAccountContacts){
+        List<AccountContact__c> accountContacts = new List<AccountContact__c>();
+        for (AccountContact__c accountContact : newAccountContacts) {
+            if (accountContact.IsPrimary__c) {
+                accountContacts.add(accountContact);
+            }
         }
-        delete [
-                SELECT Id
-                FROM AccountContact__c
-                WHERE Contact__c IN : contactsIds];
+        return accountContacts;
+    }
+
+    private List<AccountContact__c> getAccountContactsListWithIsPrimaryFieldFalse(List<AccountContact__c> newAccountContacts){
+        List<AccountContact__c> accountContacts = new List<AccountContact__c>();
+        for (AccountContact__c accountContact : newAccountContacts) {
+            if (!accountContact.IsPrimary__c) {
+                accountContacts.add(accountContact);
+            }
+        }
+        return accountContacts;
+    }
+
+    private void changeIsPrimaryFieldOnAccountContactsToFalse(List<AccountContact__c> accountContacts, Map<Id, List<AccountContact__c>> accountContactsListByContactId){
+        for (AccountContact__c accountContact: accountContacts){
+            List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
+            if (accountContactsList != null){
+                accountContact.IsPrimary__c = false;
+            }
+        }
+    }
+
+    private void changeIsPrimaryFieldOnAccountContactsToTrue(List<AccountContact__c> accountContacts, Map<Id, List<AccountContact__c>> accountContactsListByContactId){
+        for (AccountContact__c accountContact: accountContacts){
+            List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
+            if (accountContactsList == null){
+                accountContact.IsPrimary__c = true;
+            }
+        }
+    }
+
+    private class AccountContactException extends Exception{
     }
 }

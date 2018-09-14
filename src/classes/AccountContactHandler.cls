@@ -6,14 +6,14 @@ public with sharing class AccountContactHandler {
     AccountContactService service = new AccountContactService();
 
     public void onBeforeInsert(List<AccountContact__c> newAccountContacts) {
-        service.insertingNewAccountContacts(newAccountContacts);
+        service.insertNewAccountContacts(newAccountContacts);
     }
 
     public void onAfterUpdate(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
-        service.updatingAccountContacts(oldAccountContacts, newAccountContacts);
+        service.updateAccountContacts(oldAccountContacts, newAccountContacts);
     }
 
     public void onAfterDelete(List<AccountContact__c> oldAccountContacts) {
-        service.deletingAccountContacts(oldAccountContacts);
+        service.deleteAccountContacts(oldAccountContacts);
     }
 }
