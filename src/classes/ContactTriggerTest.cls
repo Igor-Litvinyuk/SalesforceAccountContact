@@ -11,7 +11,15 @@ private class ContactTriggerTest {
 
     @isTest
     static void TestDeleteContact() {
-        accountAndContactInserting();
+        for (Integer i = 0; i < 200; i++) {
+            Account account = new Account(Name = 'Test Account ' + i);
+            accounts.add(account);
+            Contact contact = new Contact(LastName = 'Test Contact ' + i);
+            contacts.add(contact);
+        }
+        insert accounts;
+        insert contacts;
+
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -26,16 +34,5 @@ private class ContactTriggerTest {
         System.assertEquals(0, verifyAccountContacts.size());
         List<Contact> verifyContacts = [SELECT Id FROM Contact];
         System.assertEquals(0, verifyContacts.size());
-    }
-
-    private static void accountAndContactInserting(){
-        for (Integer i = 0; i < 200; i++) {
-            Account account = new Account(Name = 'Test Account ' + i);
-            accounts.add(account);
-            Contact contact = new Contact(LastName = 'Test Contact ' + i);
-            contacts.add(contact);
-        }
-        insert accounts;
-        insert contacts;
     }
 }
