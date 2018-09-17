@@ -2,7 +2,7 @@
  * Created by Igor Litvinyuk on 04.09.2018.
  */
 
-trigger AccountContactTrigger on AccountContact__c (before insert, after update, after delete) {
+trigger AccountContactTrigger on AccountContact__c (before insert, before update, after update, after delete) {
 
     private static boolean isFirstRun = true;
     AccountContactHandler handler = new AccountContactHandler();
@@ -10,6 +10,11 @@ trigger AccountContactTrigger on AccountContact__c (before insert, after update,
     if(Trigger.isBefore){
         if(Trigger.isInsert) {
             handler.onBeforeInsert(Trigger.new);
+        }
+        else if(Trigger.isUpdate){
+            if(isFirstRun) {
+                handler.onBeforeUpdate(Trigger.old);
+            }
         }
     }
     else if(Trigger.isAfter){

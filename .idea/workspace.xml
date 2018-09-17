@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ad9adc94-e4c8-4382-ba5f-cff779f1ea42" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeveloperIWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DeveloperIWork.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/AccountContactException.cls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/AccountContactException.cls-meta.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/AccountContactHandler.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountContactHandler.cls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/AccountContactService.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountContactService.cls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/AccountHandler.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountHandler.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/AccountTriggerTest.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountTriggerTest.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/ContactHandler.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/ContactHandler.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/ContactTriggerTest.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/ContactTriggerTest.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/State.cls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/State.cls-meta.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger" beforeDir="false" afterPath="$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,13 +16,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DeveloperIWork$AccountContactTriggerTest_testCreateNewAccountContactsWithIsPrimaryFieldTrue.null" NAME="DeveloperIWork Coverage Results" MODIFIED="1536930926134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="Apex" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" PROJECT_NAME="DeveloperIWork" CONNECTION_NAME="DeveloperIWork" />
+    <SUITE FILE_PATH="coverage/DeveloperIWork$AccountContactTriggerTest_TestUpdateAccountContactsWithIsPrimaryFieldTrue.null" NAME="DeveloperIWork Coverage Results" MODIFIED="1537184682311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="Apex" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" PROJECT_NAME="DeveloperIWork" CONNECTION_NAME="DeveloperIWork" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1886864637">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -47,7 +38,8 @@
           <entry key="project.open.time.38" value="3" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.97" value="1" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -64,14 +56,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="apex" value="244" />
-          <entry key="cls" value="10542" />
-          <entry key="trigger" value="547" />
+          <entry key="cls" value="12556" />
+          <entry key="trigger" value="615" />
           <entry key="txt" value="138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Apex" value="11333" />
+          <entry key="Apex" value="13415" />
           <entry key="PLAIN_TEXT" value="138" />
         </counts>
       </usages-collector>
@@ -85,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="44">
+              <caret line="4" column="67" lean-forward="true" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -94,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactHandler.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="220">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -106,7 +98,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountHandler.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="198">
               <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
             </state>
           </provider>
@@ -115,7 +107,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountTriggerTest.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
+            <state relative-caret-position="638">
               <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -127,17 +119,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1155">
-              <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+            <state relative-caret-position="330">
+              <caret line="47" column="91" selection-start-line="47" selection-start-column="91" selection-end-line="47" selection-end-column="91" />
               <folding>
-                <element signature="e#3189#3208#0" expanded="true" />
-                <element signature="e#2761#2765#0" expanded="true" />
-                <element signature="e#3105#3109#0" expanded="true" />
-                <element signature="e#5558#5577#0" expanded="true" />
-                <element signature="e#5999#6018#0" expanded="true" />
+                <element signature="e#2617#2636#0" expanded="true" />
+                <element signature="e#6864#6868#0" expanded="true" />
+                <element signature="e#7580#7609#0" expanded="true" />
+                <element signature="e#7814#7833#0" expanded="true" />
+                <element signature="e#8659#8678#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,29 +138,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/triggers/AccountTrigger.trigger">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="264">
               <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="93" column="70" lean-forward="true" selection-start-line="93" selection-start-column="70" selection-end-line="93" selection-end-column="70" />
+            <state relative-caret-position="25">
+              <caret line="124" column="45" selection-start-line="124" selection-start-column="45" selection-end-line="124" selection-end-column="45" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#156#165#0" expanded="true" />
-                <element signature="e#221#230#0" expanded="true" />
-                <element signature="e#182#201#0" expanded="true" />
-                <element signature="e#283#302#0" expanded="true" />
-                <element signature="e#384#403#0" expanded="true" />
-                <element signature="e#498#517#0" expanded="true" />
-                <element signature="e#613#632#0" expanded="true" />
-                <element signature="e#868#877#0" expanded="true" />
-                <element signature="e#931#940#0" expanded="true" />
-                <marker date="1536930921959" expanded="true" signature="4986:6318" ph="..." />
+                <marker date="1537184678428" expanded="true" signature="6672:8004" ph="..." />
               </folding>
             </state>
           </provider>
@@ -177,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/ContactHandler.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="220">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -186,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/ContactTriggerTest.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="418">
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
               <folding>
                 <element signature="e#175#194#0" expanded="true" />
                 <element signature="e#250#259#0" expanded="true" />
@@ -231,14 +214,14 @@
         <option value="$PROJECT_DIR$/src/classes/State.cls" />
         <option value="$PROJECT_DIR$/src/triggers/AccountTrigger.trigger" />
         <option value="$PROJECT_DIR$/src/triggers/ContactTrigger.trigger" />
-        <option value="$PROJECT_DIR$/src/classes/AccountContactHandler.cls" />
-        <option value="$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger" />
         <option value="$PROJECT_DIR$/src/classes/ContactHandler.cls" />
         <option value="$PROJECT_DIR$/src/classes/AccountHandler.cls" />
         <option value="$PROJECT_DIR$/src/classes/ContactTriggerTest.cls" />
         <option value="$PROJECT_DIR$/src/classes/AccountTriggerTest.cls" />
-        <option value="$PROJECT_DIR$/src/classes/AccountContactService.cls" />
+        <option value="$PROJECT_DIR$/src/classes/AccountContactHandler.cls" />
+        <option value="$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger" />
         <option value="$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls" />
+        <option value="$PROJECT_DIR$/src/classes/AccountContactService.cls" />
       </list>
     </option>
   </component>
@@ -269,14 +252,14 @@
                 <ConnectionWorkspaceSettings>
                   <option name="buildSuccessDatesBySourceRootRelativePath">
                     <map>
-                      <entry key="CLASSES/ACCOUNTCONTACTHANDLER.CLS" value="1536923067080" />
-                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1536930309740" />
-                      <entry key="CLASSES/ACCOUNTCONTACTTRIGGERTEST.CLS" value="1536930924536" />
+                      <entry key="CLASSES/ACCOUNTCONTACTHANDLER.CLS" value="1537171324456" />
+                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537184670740" />
+                      <entry key="CLASSES/ACCOUNTCONTACTTRIGGERTEST.CLS" value="1537184679643" />
                       <entry key="CLASSES/ACCOUNTHANDLER.CLS" value="1536930169936" />
                       <entry key="CLASSES/ACCOUNTTRIGGERTEST.CLS" value="1536930215579" />
                       <entry key="CLASSES/CONTACTHANDLER.CLS" value="1536930157065" />
                       <entry key="CLASSES/CONTACTTRIGGERTEST.CLS" value="1536930200520" />
-                      <entry key="TRIGGERS/ACCOUNTCONTACTTRIGGER.TRIGGER" value="1536923404966" />
+                      <entry key="TRIGGERS/ACCOUNTCONTACTTRIGGER.TRIGGER" value="1537172214179" />
                       <entry key="TRIGGERS/ACCOUNTTRIGGER.TRIGGER" value="1536833948186" />
                       <entry key="TRIGGERS/CONTACTTRIGGER.TRIGGER" value="1536833956675" />
                     </map>
@@ -1230,7 +1213,113 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Apex Unit Tests.AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue">
+  <component name="RunManager" selected="Apex Unit Tests.AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue">
+    <configuration name="AccountContactTriggerTest" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allTests" value="false" />
+      <option name="apexLogLevel" value="DEBUG" />
+      <option name="calloutsLogLevel" value="INFO" />
+      <option name="connectionName" value="DeveloperIWork" />
+      <option name="contextConfiguration" value="true" />
+      <option name="databaseLogLevel" value="INFO" />
+      <option name="logLevelsInitialized" value="false" />
+      <option name="moduleToTestClassNames">
+        <map>
+          <entry key="DeveloperIWork">
+            <value>
+              <set>
+                <option value="AccountContactTriggerTest" />
+              </set>
+            </value>
+          </entry>
+        </map>
+      </option>
+      <option name="profilingLogLevel" value="INFO" />
+      <option name="systemLogLevel" value="DEBUG" />
+      <option name="testClassToTestMethodNames">
+        <map />
+      </option>
+      <option name="testSuiteName" />
+      <option name="validationLogLevel" value="INFO" />
+      <option name="visualforceLogLevel" value="INFO" />
+      <option name="workflowLogLevel" value="INFO" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allTests" value="false" />
+      <option name="apexLogLevel" value="DEBUG" />
+      <option name="calloutsLogLevel" value="INFO" />
+      <option name="connectionName" value="DeveloperIWork" />
+      <option name="contextConfiguration" value="true" />
+      <option name="databaseLogLevel" value="INFO" />
+      <option name="logLevelsInitialized" value="false" />
+      <option name="moduleToTestClassNames">
+        <map>
+          <entry key="DeveloperIWork">
+            <value>
+              <set>
+                <option value="AccountContactTriggerTest" />
+              </set>
+            </value>
+          </entry>
+        </map>
+      </option>
+      <option name="profilingLogLevel" value="INFO" />
+      <option name="systemLogLevel" value="DEBUG" />
+      <option name="testClassToTestMethodNames">
+        <map>
+          <entry key="AccountContactTriggerTest">
+            <value>
+              <set>
+                <option value="TestUpdateAccountContactsWithIsPrimaryFieldTrue" />
+              </set>
+            </value>
+          </entry>
+        </map>
+      </option>
+      <option name="testSuiteName" />
+      <option name="validationLogLevel" value="INFO" />
+      <option name="visualforceLogLevel" value="INFO" />
+      <option name="workflowLogLevel" value="INFO" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AccountContactTriggerTest.testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allTests" value="false" />
+      <option name="apexLogLevel" value="DEBUG" />
+      <option name="calloutsLogLevel" value="INFO" />
+      <option name="connectionName" value="DeveloperIWork" />
+      <option name="contextConfiguration" value="true" />
+      <option name="databaseLogLevel" value="INFO" />
+      <option name="logLevelsInitialized" value="false" />
+      <option name="moduleToTestClassNames">
+        <map>
+          <entry key="DeveloperIWork">
+            <value>
+              <set>
+                <option value="AccountContactTriggerTest" />
+              </set>
+            </value>
+          </entry>
+        </map>
+      </option>
+      <option name="profilingLogLevel" value="INFO" />
+      <option name="systemLogLevel" value="DEBUG" />
+      <option name="testClassToTestMethodNames">
+        <map>
+          <entry key="AccountContactTriggerTest">
+            <value>
+              <set>
+                <option value="testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk" />
+              </set>
+            </value>
+          </entry>
+        </map>
+      </option>
+      <option name="testSuiteName" />
+      <option name="validationLogLevel" value="INFO" />
+      <option name="visualforceLogLevel" value="INFO" />
+      <option name="workflowLogLevel" value="INFO" />
+      <method v="2" />
+    </configuration>
     <configuration name="AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allTests" value="false" />
       <option name="apexLogLevel" value="DEBUG" />
@@ -1258,74 +1347,6 @@
             <value>
               <set>
                 <option value="testCreateNewAccountContactsWithIsPrimaryFieldTrue" />
-              </set>
-            </value>
-          </entry>
-        </map>
-      </option>
-      <option name="testSuiteName" />
-      <option name="validationLogLevel" value="INFO" />
-      <option name="visualforceLogLevel" value="INFO" />
-      <option name="workflowLogLevel" value="INFO" />
-      <method v="2" />
-    </configuration>
-    <configuration name="AccountTriggerTest" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <option name="allTests" value="false" />
-      <option name="apexLogLevel" value="DEBUG" />
-      <option name="calloutsLogLevel" value="INFO" />
-      <option name="connectionName" value="DeveloperIWork" />
-      <option name="contextConfiguration" value="true" />
-      <option name="databaseLogLevel" value="INFO" />
-      <option name="logLevelsInitialized" value="false" />
-      <option name="moduleToTestClassNames">
-        <map>
-          <entry key="DeveloperIWork">
-            <value>
-              <set>
-                <option value="AccountTriggerTest" />
-              </set>
-            </value>
-          </entry>
-        </map>
-      </option>
-      <option name="profilingLogLevel" value="INFO" />
-      <option name="systemLogLevel" value="DEBUG" />
-      <option name="testClassToTestMethodNames">
-        <map />
-      </option>
-      <option name="testSuiteName" />
-      <option name="validationLogLevel" value="INFO" />
-      <option name="visualforceLogLevel" value="INFO" />
-      <option name="workflowLogLevel" value="INFO" />
-      <method v="2" />
-    </configuration>
-    <configuration name="AccountTriggerTest.TestDeleteAccount" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <option name="allTests" value="false" />
-      <option name="apexLogLevel" value="DEBUG" />
-      <option name="calloutsLogLevel" value="INFO" />
-      <option name="connectionName" value="DeveloperIWork" />
-      <option name="contextConfiguration" value="true" />
-      <option name="databaseLogLevel" value="INFO" />
-      <option name="logLevelsInitialized" value="false" />
-      <option name="moduleToTestClassNames">
-        <map>
-          <entry key="DeveloperIWork">
-            <value>
-              <set>
-                <option value="AccountTriggerTest" />
-              </set>
-            </value>
-          </entry>
-        </map>
-      </option>
-      <option name="profilingLogLevel" value="INFO" />
-      <option name="systemLogLevel" value="DEBUG" />
-      <option name="testClassToTestMethodNames">
-        <map>
-          <entry key="AccountTriggerTest">
-            <value>
-              <set>
-                <option value="TestDeleteAccount" />
               </set>
             </value>
           </entry>
@@ -1367,58 +1388,20 @@
       <option name="workflowLogLevel" value="INFO" />
       <method v="2" />
     </configuration>
-    <configuration name="ContactTriggerTest.TestDeleteContact" type="com.illuminatedcloud.intellij" factoryName="Apex Unit Tests" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <option name="allTests" value="false" />
-      <option name="apexLogLevel" value="DEBUG" />
-      <option name="calloutsLogLevel" value="INFO" />
-      <option name="connectionName" value="DeveloperIWork" />
-      <option name="contextConfiguration" value="true" />
-      <option name="databaseLogLevel" value="INFO" />
-      <option name="logLevelsInitialized" value="false" />
-      <option name="moduleToTestClassNames">
-        <map>
-          <entry key="DeveloperIWork">
-            <value>
-              <set>
-                <option value="ContactTriggerTest" />
-              </set>
-            </value>
-          </entry>
-        </map>
-      </option>
-      <option name="profilingLogLevel" value="INFO" />
-      <option name="systemLogLevel" value="DEBUG" />
-      <option name="testClassToTestMethodNames">
-        <map>
-          <entry key="ContactTriggerTest">
-            <value>
-              <set>
-                <option value="TestDeleteContact" />
-              </set>
-            </value>
-          </entry>
-        </map>
-      </option>
-      <option name="testSuiteName" />
-      <option name="validationLogLevel" value="INFO" />
-      <option name="visualforceLogLevel" value="INFO" />
-      <option name="workflowLogLevel" value="INFO" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Apex Unit Tests.AccountTriggerTest" />
       <item itemvalue="Apex Unit Tests.ContactTriggerTest" />
-      <item itemvalue="Apex Unit Tests.ContactTriggerTest.TestDeleteContact" />
-      <item itemvalue="Apex Unit Tests.AccountTriggerTest.TestDeleteAccount" />
       <item itemvalue="Apex Unit Tests.AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" />
+      <item itemvalue="Apex Unit Tests.AccountContactTriggerTest" />
+      <item itemvalue="Apex Unit Tests.AccountContactTriggerTest.testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk" />
+      <item itemvalue="Apex Unit Tests.AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Apex Unit Tests.AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue" />
+        <item itemvalue="Apex Unit Tests.AccountContactTriggerTest" />
         <item itemvalue="Apex Unit Tests.AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" />
+        <item itemvalue="Apex Unit Tests.AccountContactTriggerTest.testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk" />
         <item itemvalue="Apex Unit Tests.ContactTriggerTest" />
-        <item itemvalue="Apex Unit Tests.ContactTriggerTest.TestDeleteContact" />
-        <item itemvalue="Apex Unit Tests.AccountTriggerTest" />
-        <item itemvalue="Apex Unit Tests.AccountTriggerTest.TestDeleteAccount" />
       </list>
     </recent_temporary>
   </component>
@@ -1452,7 +1435,8 @@
       <workItem from="1536833137414" duration="363000" />
       <workItem from="1536833550170" duration="3489000" />
       <workItem from="1536904256084" duration="1058000" />
-      <workItem from="1536914645729" duration="11896000" />
+      <workItem from="1536914645729" duration="12513000" />
+      <workItem from="1537163887921" duration="20718000" />
     </task>
     <task id="LOCAL-00001" summary="AccountContactTrigger was edited">
       <created>1536571789669</created>
@@ -1517,49 +1501,56 @@
       <option name="project" value="LOCAL" />
       <updated>1536915465644</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactoring">
+      <created>1536930986592</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1536930986592</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ContactTriggerTest_TestDeleteContact - 2018.09.14 at 15h 56m 40s.xml">
-      <configuration name="ContactTriggerTest.TestDeleteContact" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest - 2018.09.14 at 15h 58m 40s.xml">
-      <configuration name="ContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest - 2018.09.14 at 15h 59m 25s.xml">
-      <configuration name="ContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest - 2018.09.14 at 15h 59m 48s.xml">
-      <configuration name="ContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest_TestDeleteContact - 2018.09.14 at 16h 00m 14s.xml">
-      <configuration name="ContactTriggerTest.TestDeleteContact" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="AccountTriggerTest - 2018.09.14 at 16h 02m 57s.xml">
-      <configuration name="AccountTriggerTest" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest - 2018.09.14 at 16h 03m 06s.xml">
-      <configuration name="ContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest_TestDeleteContact - 2018.09.14 at 16h 03m 25s.xml">
-      <configuration name="ContactTriggerTest.TestDeleteContact" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="ContactTriggerTest - 2018.09.14 at 16h 05m 19s.xml">
-      <configuration name="ContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
-    </history-entry>
-    <history-entry file="AccountContactTriggerTest_testCreateNewAccountContactsWithIsPrimaryFieldTrue - 2018.09.14 at 16h 15m 34s.xml">
+    <history-entry file="AccountContactTriggerTest_testCreateNewAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 12h 57m 18s.xml">
       <configuration name="AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest_testCreateNewAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 12h 57m 28s.xml">
+      <configuration name="AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest - 2018.09.17 at 12h 57m 54s.xml">
+      <configuration name="AccountContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest_testCreateNewAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 13h 00m 16s.xml">
+      <configuration name="AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest - 2018.09.17 at 13h 01m 41s.xml">
+      <configuration name="AccountContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest_testCreateNewAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 13h 05m 24s.xml">
+      <configuration name="AccountContactTriggerTest.testCreateNewAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest - 2018.09.17 at 13h 05m 44s.xml">
+      <configuration name="AccountContactTriggerTest" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest_TestUpdateAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 14h 18m 11s.xml">
+      <configuration name="AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest_TestUpdateAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 14h 19m 34s.xml">
+      <configuration name="AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
+    </history-entry>
+    <history-entry file="AccountContactTriggerTest_TestUpdateAccountContactsWithIsPrimaryFieldTrue - 2018.09.17 at 14h 45m 03s.xml">
+      <configuration name="AccountContactTriggerTest.TestUpdateAccountContactsWithIsPrimaryFieldTrue" configurationId="com.illuminatedcloud.intellij" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151483000" />
+    <option name="totallyTimeSpent" value="172818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914822" visible="true" weight="0.13326226" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914822" visible="true" weight="0.13432837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1691,27 +1682,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactException.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/State.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactException.cls" />
+    <entry file="file://$PROJECT_DIR$/src/classes/State.cls" />
     <entry file="jar://$PROJECT_DIR$/IlluminatedCloud/DeveloperIWork/OfflineSymbolTable.zip!/System/Exception.cls">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -1719,40 +1691,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactHandler.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/triggers/AccountTrigger.trigger">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/ContactHandler.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountHandler.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="198">
           <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountTriggerTest.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
+        <state relative-caret-position="638">
           <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1763,10 +1711,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/triggers/AccountTrigger.trigger">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/ContactHandler.cls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/ContactTriggerTest.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="418">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding>
             <element signature="e#175#194#0" expanded="true" />
             <element signature="e#250#259#0" expanded="true" />
@@ -1775,36 +1737,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactHandler.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1155">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#3189#3208#0" expanded="true" />
-            <element signature="e#2761#2765#0" expanded="true" />
-            <element signature="e#3105#3109#0" expanded="true" />
-            <element signature="e#5558#5577#0" expanded="true" />
-            <element signature="e#5999#6018#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="4" column="67" lean-forward="true" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="93" column="70" lean-forward="true" selection-start-line="93" selection-start-column="70" selection-end-line="93" selection-end-column="70" />
+        <state relative-caret-position="25">
+          <caret line="124" column="45" selection-start-line="124" selection-start-column="45" selection-end-line="124" selection-end-column="45" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#156#165#0" expanded="true" />
-            <element signature="e#221#230#0" expanded="true" />
-            <element signature="e#182#201#0" expanded="true" />
-            <element signature="e#283#302#0" expanded="true" />
-            <element signature="e#384#403#0" expanded="true" />
-            <element signature="e#498#517#0" expanded="true" />
-            <element signature="e#613#632#0" expanded="true" />
-            <element signature="e#868#877#0" expanded="true" />
-            <element signature="e#931#940#0" expanded="true" />
-            <marker date="1536930921959" expanded="true" signature="4986:6318" ph="..." />
+            <marker date="1537184678428" expanded="true" signature="6672:8004" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="47" column="91" selection-start-line="47" selection-start-column="91" selection-end-line="47" selection-end-column="91" />
+          <folding>
+            <element signature="e#2617#2636#0" expanded="true" />
+            <element signature="e#6864#6868#0" expanded="true" />
+            <element signature="e#7580#7609#0" expanded="true" />
+            <element signature="e#7814#7833#0" expanded="true" />
+            <element signature="e#8659#8678#0" expanded="true" />
           </folding>
         </state>
       </provider>

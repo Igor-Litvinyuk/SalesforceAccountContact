@@ -107,6 +107,8 @@ private class AccountContactTriggerTest {
             }
         }
         insert firstHalfListAccountContactsForInsert;
+        List<AccountContact__c> firstHalf = [SELECT Id, isPrimary__c FROM AccountContact__c];
+        System.assertEquals(100, firstHalf.size());
         insert secondHalfListAccountContactsForInsert;
         List<AccountContact__c> verifyAccountContacts = [SELECT Id, isPrimary__c FROM AccountContact__c];
         for (Integer i = 0; i < verifyAccountContacts.size(); i++){
@@ -115,6 +117,41 @@ private class AccountContactTriggerTest {
             }
             else {
                 System.assertEquals(false, verifyAccountContacts[i].isPrimary__c);
+            }
+        }
+    }
+
+    @isTest
+    static void TestUpdateAccountContactsWithIsPrimaryFieldTrue() {
+        accountAndContactInserting();
+        for (Integer i = 0; i < 200; i++){
+            AccountContact__c accountContact = new AccountContact__c();
+            accountContact.Account__c = accounts[i].Id;
+            if (i < half){
+                accountContact.Contact__c = contacts[i].Id;
+                firstHalfListAccountContactsForInsert.add(accountContact);
+            }
+            else {
+                accountContact.Contact__c = contacts[i-half].Id;
+                accountContact.isPrimary__c = true;
+                secondHalfListAccountContactsForInsert.add(accountContact);
+                accountContactsForUpdate.add(accountContact);
+            }
+        }
+        insert firstHalfListAccountContactsForInsert;
+        List<AccountContact__c> firstHalf = [SELECT Id, isPrimary__c FROM AccountContact__c];
+        System.assertEquals(100, firstHalf.size());
+        insert secondHalfListAccountContactsForInsert;
+        Test.startTest();
+        update accountContactsForUpdate;
+        Test.stopTest();
+        List<AccountContact__c> verifyAccountContacts = [SELECT Id, isPrimary__c FROM AccountContact__c];
+        for (Integer i = 0; i < verifyAccountContacts.size(); i++){
+            if (i < half){
+                System.assertEquals(false, verifyAccountContacts[i].isPrimary__c);
+            }
+            else {
+                System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
             }
         }
     }
