@@ -4,7 +4,7 @@
 
 trigger AccountContactTrigger on AccountContact__c (before insert, before update, after update, after delete) {
 
-    private static boolean isFirstRun = true;
+    System.debug(AccountContactService.isFirstRun);
     AccountContactHandler handler = new AccountContactHandler();
 
     if(Trigger.isBefore){
@@ -12,16 +12,16 @@ trigger AccountContactTrigger on AccountContact__c (before insert, before update
             handler.onBeforeInsert(Trigger.new);
         }
         else if(Trigger.isUpdate){
-            if(isFirstRun) {
-                handler.onBeforeUpdate(Trigger.old);
+            if(AccountContactService.isFirstRun) {
+                handler.onBeforeUpdate(Trigger.old, Trigger.new);
             }
         }
     }
     else if(Trigger.isAfter){
         if(Trigger.isUpdate){
-            if(isFirstRun){
-                handler.onAfterUpdate(Trigger.old, Trigger.new);
-                isFirstRun = false;
+            if(AccountContactService.isFirstRun){
+                AccountContactService.isFirstRun = false;
+                handler.onAfterUpdate();
             }
         }
         else if(Trigger.isDelete){

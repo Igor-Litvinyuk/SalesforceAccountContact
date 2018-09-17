@@ -4,6 +4,12 @@
 
 public with sharing class AccountContactService{
 
+    public static boolean isFirstRun;
+
+    static {
+        isFirstRun = true;
+    }
+
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueForUpdate;
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseForUpdate;
 
@@ -21,39 +27,38 @@ public with sharing class AccountContactService{
         this.changeIsPrimaryFieldOnAccountContactsToTrue(accountContactsWithIsPrimaryFieldFalse, accountContactsListByContactId);
     }
 
-    public void beforeUpdateAccountContacts(List<AccountContact__c> oldAccountContacts) {
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = getAccountContactsListWithSpecificIsPrimaryField(oldAccountContacts, false);
-        Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalse);
+    public void beforeUpdateAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseToTrue = new List<AccountContact__c>();
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueToFalse = new List<AccountContact__c>();
+        for (Integer i = 0; i < oldAccountContacts.size(); i++){
+            if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c){
+                accountContactsWithIsPrimaryFieldFalseToTrue.add(oldAccountContacts[i]);
+            }
+            if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c){
+                accountContactsWithIsPrimaryFieldTrueToFalse.add(oldAccountContacts[i]);
+            }
+        }
+        Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalseToTrue);
         accountContactsWithIsPrimaryFieldFalseForUpdate = this.getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldTrue, true);
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = getAccountContactsListWithSpecificIsPrimaryField(oldAccountContacts, true);
-        Set<Id> contactsIdsSetWithIsPrimaryFieldFalse = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrue);
+        Set<Id> contactsIdsSetWithIsPrimaryFieldFalse = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrueToFalse);
         accountContactsWithIsPrimaryFieldTrueForUpdate = this.getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldFalse, false);
     }
 
-    public void updateAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
+    public void updateAccountContacts() {
         List<AccountContact__c> accountContactsForUpdate = new List<AccountContact__c>();
-        for (Integer i = 0; i < oldAccountContacts.size(); i++){
-            if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c){
-                continue;
-            }
-            if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c){
-                Set<Id> contactsIds = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalseForUpdate);
-                Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldTrue = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldFalseForUpdate);
-                for(Id contactId : contactsIds){
-                    List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldTrue.get(contactId);
-                    accountContactsList[0].isPrimary__c = false;
-                    accountContactsForUpdate.add(accountContactsList[0]);
-                }
-            }
-            if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c){
-                Set<Id> contactsIds = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrueForUpdate);
-                Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldFalse = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldTrueForUpdate);
-                for(Id contactId : contactsIds){
-                    List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldFalse.get(contactId);
-                    accountContactsList[0].isPrimary__c = true;
-                    accountContactsForUpdate.add(accountContactsList[0]);
-                }
-            }
+        Set<Id> contactsIds1 = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalseForUpdate);
+        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldTrue = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldFalseForUpdate);
+        for(Id contactId : contactsIds1){
+            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldTrue.get(contactId);
+            accountContactsList[0].isPrimary__c = false;
+            accountContactsForUpdate.add(accountContactsList[0]);
+        }
+        Set<Id> contactsIds2 = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrueForUpdate);
+        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldFalse = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldTrueForUpdate);
+        for(Id contactId : contactsIds2){
+            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldFalse.get(contactId);
+            accountContactsList[0].isPrimary__c = true;
+            accountContactsForUpdate.add(accountContactsList[0]);
         }
         update accountContactsForUpdate;
     }

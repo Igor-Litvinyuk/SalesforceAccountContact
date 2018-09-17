@@ -9,12 +9,12 @@ public with sharing class AccountContactHandler {
         service.insertNewAccountContacts(newAccountContacts);
     }
 
-    public void onBeforeUpdate(List<AccountContact__c> oldAccountContacts) {
-        service.beforeUpdateAccountContacts(oldAccountContacts);
+    public void onBeforeUpdate(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
+        service.beforeUpdateAccountContacts(oldAccountContacts, newAccountContacts);
     }
 
-    public void onAfterUpdate(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
-        service.updateAccountContacts(oldAccountContacts, newAccountContacts);
+    public void onAfterUpdate() {
+        service.updateAccountContacts();
     }
 
     public void onAfterDelete(List<AccountContact__c> oldAccountContacts) {
