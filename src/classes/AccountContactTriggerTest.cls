@@ -135,6 +135,26 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
+    static void testUpdateAccountContactsInBulkWithSameContact() {
+        accountAndContactInserting();
+        for (Integer i = 0; i < 200; i++){
+            AccountContact__c accountContact = new AccountContact__c();
+            accountContact.Account__c = accounts[i].Id;
+            accountContact.Contact__c = contacts[i].Id;
+            if(i > half){
+                accountContact.Contact__c = contacts[i-half].Id;
+            }
+            accountContactsForUpdate.add(accountContact);
+        }
+        try {
+            update accountContactsForUpdate;
+        }
+        catch(Exception e){
+            System.assertEquals(true, true);
+        }
+    }
+
+    @isTest
     static void testDeleteAccountContactsInBulkWithChangingCheckboxOnAnotherAccountContact() {
         accountAndContactInserting();
         for (Integer i = 0; i < 100; i++){
