@@ -4,7 +4,6 @@
 
 trigger AccountContactTrigger on AccountContact__c (before insert, before update, after update, after delete) {
 
-    System.debug(AccountContactService.isFirstRun);
     AccountContactHandler handler = new AccountContactHandler();
 
     if(Trigger.isBefore){

@@ -12,6 +12,11 @@ public with sharing class AccountContactService{
 
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueForUpdate;
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseForUpdate;
+    private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseToTrue = new List<AccountContact__c>();
+    private static List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueToFalse = new List<AccountContact__c>();
+    private static List<AccountContact__c> accountContactsWithAnotherContact = new List<AccountContact__c>();
+    private static List<AccountContact__c> accountContactsForUpdate = new List<AccountContact__c>();
+    private static Set<Id> oldContactsIdsSet = new Set<Id>();
 
     public void insertNewAccountContacts(List<AccountContact__c> newAccountContacts) {
         Set<Id> contactsIdsSet = this.getContactIdsSet(newAccountContacts);
@@ -32,13 +37,14 @@ public with sharing class AccountContactService{
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap = this.getAccountContactsListByContactIdMap(newAccountContacts);
         this.checkCountOfSameContactsFromTrigger(contactsIdsSet, accountContactsListByContactIdMap);
 
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseToTrue = new List<AccountContact__c>();
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueToFalse = new List<AccountContact__c>();
         for (Integer i = 0; i < oldAccountContacts.size(); i++){
+            if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c ){
+                continue;
+            }
             if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c){
                 accountContactsWithIsPrimaryFieldFalseToTrue.add(oldAccountContacts[i]);
             }
-            if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c){
+            else if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c){
                 accountContactsWithIsPrimaryFieldTrueToFalse.add(oldAccountContacts[i]);
             }
         }
@@ -48,21 +54,13 @@ public with sharing class AccountContactService{
         accountContactsWithIsPrimaryFieldTrueForUpdate = this.getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldFalse, false);
     }
 
-    public void updateAccountContacts() {
-        List<AccountContact__c> accountContactsForUpdate = new List<AccountContact__c>();
-        Set<Id> contactsIdsWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalseForUpdate);
-        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldTrue = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldFalseForUpdate);
-        for(Id contactId : contactsIdsWithIsPrimaryFieldTrue){
-            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldTrue.get(contactId);
-            accountContactsList[0].isPrimary__c = false;
-            accountContactsForUpdate.add(accountContactsList[0]);
+    public void afterUpdateAccountContacts() {
+        if(accountContactsWithIsPrimaryFieldFalseToTrue != null){
+            this.addAccountContactsForUpdateWithIsPrimaryFieldFalse();
         }
-        Set<Id> contactsIdsPrimaryFieldFalse = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrueForUpdate);
-        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldFalse = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldTrueForUpdate);
-        for(Id contactId : contactsIdsPrimaryFieldFalse){
-            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldFalse.get(contactId);
-            accountContactsList[0].isPrimary__c = true;
-            accountContactsForUpdate.add(accountContactsList[0]);
+
+        if(accountContactsWithIsPrimaryFieldTrueToFalse != null){
+            this.addAccountContactsForUpdateWithIsPrimaryFieldTrue();
         }
         update accountContactsForUpdate;
     }
@@ -193,6 +191,26 @@ public with sharing class AccountContactService{
                 AND isPrimary__c =: isPrimary
                 ORDER BY CreatedDate
         ];
+    }
+
+    private void addAccountContactsForUpdateWithIsPrimaryFieldFalse(){
+        Set<Id> contactsIdsWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalseForUpdate);
+        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldTrue = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldFalseForUpdate);
+        for(Id contactId : contactsIdsWithIsPrimaryFieldTrue){
+            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldTrue.get(contactId);
+            accountContactsList[0].isPrimary__c = false;
+            accountContactsForUpdate.add(accountContactsList[0]);
+        }
+    }
+
+    private void addAccountContactsForUpdateWithIsPrimaryFieldTrue(){
+        Set<Id> contactsIdsPrimaryFieldFalse = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrueForUpdate);
+        Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldFalse = this.getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldTrueForUpdate);
+        for(Id contactId : contactsIdsPrimaryFieldFalse){
+            List<AccountContact__c> accountContactsList = accountContactsListByContactIdWithIsPrimaryFieldFalse.get(contactId);
+            accountContactsList[0].isPrimary__c = true;
+            accountContactsForUpdate.add(accountContactsList[0]);
+        }
     }
 
     private class AccountContactException extends Exception{

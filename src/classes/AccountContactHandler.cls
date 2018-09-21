@@ -14,7 +14,7 @@ public with sharing class AccountContactHandler {
     }
 
     public void onAfterUpdate() {
-        service.updateAccountContacts();
+        service.afterUpdateAccountContacts();
     }
 
     public void onAfterDelete(List<AccountContact__c> oldAccountContacts) {
