@@ -15,20 +15,6 @@ private class AccountContactTriggerTest {
     private static List<AccountContact__c> secondHalfListAccountContactsForInsert = new List<AccountContact__c>();
 
     @isTest
-    static void testCreateNewAccountContactsInBulk() {
-        accountAndContactInserting();
-        for (Integer i = 0; i < 200; i++){
-            AccountContact__c accountContact = new AccountContact__c();
-            accountContact.Account__c = accounts[i].Id;
-            accountContact.Contact__c = contacts[i].Id;
-            accountContactsForInsert.add(accountContact);
-        }
-        insert accountContactsForInsert;
-        List<AccountContact__c> verifyAccountContacts = [SELECT Id FROM AccountContact__c];
-        System.assertEquals(200, verifyAccountContacts.size());
-    }
-
-    @isTest
     static void testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk() {
         accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
@@ -46,12 +32,7 @@ private class AccountContactTriggerTest {
         insert accountContactsForInsert;
         List<AccountContact__c> verifyAccountContacts = [SELECT Id, isPrimary__c FROM AccountContact__c];
         for (Integer i = 0; i < verifyAccountContacts.size(); i++){
-            if (i < half){
-                System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
-            }
-            else {
-                System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
-            }
+            System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
         }
     }
 
@@ -78,21 +59,22 @@ private class AccountContactTriggerTest {
     @isTest
     static void testCreateNewAccountContactsWithIsPrimaryFieldTrue() {
         accountAndContactInserting();
-        for (Integer i = 0; i < 100; i++){
+        for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
-            accountContact.Contact__c = contacts[i].Id;
-            firstHalfListAccountContactsForInsert.add(accountContact);
+            if (i < 100){
+                accountContact.Contact__c = contacts[i].Id;
+                firstHalfListAccountContactsForInsert.add(accountContact);
+            }
+            else {
+                accountContact.Contact__c = contacts[i-half].Id;
+                secondHalfListAccountContactsForInsert.add(accountContact);
+            }
         }
         insert firstHalfListAccountContactsForInsert;
-        for (Integer i = 0; i < 100; i++){
-            AccountContact__c accountContact = new AccountContact__c();
-            accountContact.Account__c = accounts[i].Id;
-            accountContact.Contact__c = contacts[i].Id;
-            secondHalfListAccountContactsForInsert.add(accountContact);
-        }
         insert secondHalfListAccountContactsForInsert;
         List<AccountContact__c> verifyAccountContacts = [SELECT Id, isPrimary__c FROM AccountContact__c];
+        System.assertEquals(200, verifyAccountContacts.size());
         for (Integer i = 0; i < verifyAccountContacts.size(); i++){
             if (i < half){
                 System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
@@ -130,6 +112,36 @@ private class AccountContactTriggerTest {
             }
             else {
                 System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
+            }
+        }
+    }
+
+    @isTest
+    static void testUpdateAccountContactsWithIsPrimaryFieldFalse() {
+        accountAndContactInserting();
+        for (Integer i = 0; i < 100; i++){
+            AccountContact__c accountContact = new AccountContact__c();
+            accountContact.Account__c = accounts[i].Id;
+            accountContact.Contact__c = contacts[i].Id;
+            firstHalfListAccountContactsForInsert.add(accountContact);
+            accountContactsForUpdate.add(accountContact);
+        }
+        insert firstHalfListAccountContactsForInsert;
+        for (Integer i = 0; i < 100; i++){
+            AccountContact__c accountContact = new AccountContact__c();
+            accountContact.Account__c = accounts[i].Id;
+            accountContact.Contact__c = contacts[i].Id;
+            secondHalfListAccountContactsForInsert.add(accountContact);
+        }
+        insert secondHalfListAccountContactsForInsert;
+        update accountContactsForUpdate;
+        List<AccountContact__c> verifyAccountContacts = [SELECT Id, isPrimary__c FROM AccountContact__c];
+        for (Integer i = 0; i < verifyAccountContacts.size(); i++){
+            if (i < half){
+                System.assertEquals(true, verifyAccountContacts[i].isPrimary__c);
+            }
+            else {
+                System.assertEquals(false, verifyAccountContacts[i].isPrimary__c);
             }
         }
     }
