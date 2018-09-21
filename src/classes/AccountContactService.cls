@@ -36,18 +36,7 @@ public with sharing class AccountContactService{
         Set<Id> contactsIdsSet = this.getContactIdsSet(newAccountContacts);
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap = this.getAccountContactsListByContactIdMap(newAccountContacts);
         this.checkCountOfSameContactsFromTrigger(contactsIdsSet, accountContactsListByContactIdMap);
-
-        for (Integer i = 0; i < oldAccountContacts.size(); i++){
-            if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c ){
-                continue;
-            }
-            if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c){
-                accountContactsWithIsPrimaryFieldFalseToTrue.add(oldAccountContacts[i]);
-            }
-            else if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c){
-                accountContactsWithIsPrimaryFieldTrueToFalse.add(oldAccountContacts[i]);
-            }
-        }
+        this.distributionAccountContacts(oldAccountContacts, newAccountContacts);
         Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = this.getContactIdsSet(accountContactsWithIsPrimaryFieldFalseToTrue);
         accountContactsWithIsPrimaryFieldFalseForUpdate = this.getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldTrue, true);
         Set<Id> contactsIdsSetWithIsPrimaryFieldFalse = this.getContactIdsSet(accountContactsWithIsPrimaryFieldTrueToFalse);
@@ -191,6 +180,34 @@ public with sharing class AccountContactService{
                 AND isPrimary__c =: isPrimary
                 ORDER BY CreatedDate
         ];
+    }
+
+    private void distributionAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts){
+        for (Integer i = 0; i < oldAccountContacts.size(); i++){
+            if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c){
+                continue;
+            }
+            if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Contact__c == newAccountContacts[i].Contact__c){
+                accountContactsWithIsPrimaryFieldFalseToTrue.add(oldAccountContacts[i]);
+            }
+            else if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Contact__c == newAccountContacts[i].Contact__c){
+                accountContactsWithIsPrimaryFieldTrueToFalse.add(oldAccountContacts[i]);
+            }
+
+            else if (oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c){
+
+            }
+            else if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c){
+
+            }
+            else if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c){
+
+            }
+        }
     }
 
     private void addAccountContactsForUpdateWithIsPrimaryFieldFalse(){
