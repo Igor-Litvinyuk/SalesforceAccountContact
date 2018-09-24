@@ -200,14 +200,6 @@ public with sharing class AccountContactService{
             else if (oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c){
                 accountContactsWithAnotherContact.add(newAccountContacts[i]);
             }
-            else if (!oldAccountContacts[i].isPrimary__c && newAccountContacts[i].isPrimary__c
-                    && oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c){
-
-            }
-            else if (oldAccountContacts[i].isPrimary__c && !newAccountContacts[i].isPrimary__c
-                    && oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c){
-
-            }
         }
     }
 
