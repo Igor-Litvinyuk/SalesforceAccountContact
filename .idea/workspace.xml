@@ -57,15 +57,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="apex" value="503" />
-          <entry key="cls" value="17022" />
+          <entry key="apex" value="511" />
+          <entry key="cls" value="17456" />
           <entry key="trigger" value="676" />
           <entry key="txt" value="183" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Apex" value="18201" />
+          <entry key="Apex" value="18643" />
           <entry key="PLAIN_TEXT" value="183" />
         </counts>
       </usages-collector>
@@ -124,23 +124,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
+            <state relative-caret-position="529">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#899#918#0" expanded="true" />
                 <element signature="e#1020#1039#0" expanded="true" />
                 <element signature="e#1130#1149#0" expanded="true" />
                 <element signature="e#1231#1250#0" expanded="true" />
-                <element signature="e#1308#1312#0" expanded="true" />
-                <element signature="e#4522#4541#0" expanded="true" />
-                <element signature="e#5123#5127#0" expanded="true" />
-                <element signature="e#5613#5617#0" expanded="true" />
-                <element signature="e#6102#6106#0" expanded="true" />
-                <element signature="e#6818#6847#0" expanded="true" />
-                <element signature="e#6827#6847#0" expanded="true" />
-                <element signature="e#7052#7071#0" expanded="true" />
-                <element signature="e#7897#7916#0" expanded="true" />
+                <element signature="e#5110#5129#0" expanded="true" />
+                <element signature="e#5711#5715#0" expanded="true" />
+                <element signature="e#6201#6205#0" expanded="true" />
+                <element signature="e#6690#6694#0" expanded="true" />
+                <element signature="e#7406#7435#0" expanded="true" />
+                <element signature="e#7415#7435#0" expanded="true" />
+                <element signature="e#7640#7659#0" expanded="true" />
+                <element signature="e#8082#8101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -268,7 +267,7 @@
                   <option name="buildSuccessDatesBySourceRootRelativePath">
                     <map>
                       <entry key="CLASSES/ACCOUNTCONTACTHANDLER.CLS" value="1537512463591" />
-                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537791077994" />
+                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537796027219" />
                       <entry key="CLASSES/ACCOUNTCONTACTTRIGGERTEST.CLS" value="1537790460719" />
                       <entry key="CLASSES/ACCOUNTHANDLER.CLS" value="1536930169936" />
                       <entry key="CLASSES/ACCOUNTTRIGGERTEST.CLS" value="1536930215579" />
@@ -1467,7 +1466,7 @@
       <workItem from="1537511887136" duration="2569000" />
       <workItem from="1537514504718" duration="8305000" />
       <workItem from="1537523895550" duration="8979000" />
-      <workItem from="1537768909881" duration="21738000" />
+      <workItem from="1537768909881" duration="26831000" />
     </task>
     <task id="LOCAL-00001" summary="AccountContactTrigger was edited">
       <created>1536571789669</created>
@@ -1609,7 +1608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537791155067</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Refactoring">
+      <created>1537791199954</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1537791199954</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1645,7 +1651,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223410000" />
+    <option name="totallyTimeSpent" value="228503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1660,7 +1666,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4989339" weight="0.32814237" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.2836485" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.2836485" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1873,23 +1879,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
+        <state relative-caret-position="529">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#899#918#0" expanded="true" />
             <element signature="e#1020#1039#0" expanded="true" />
             <element signature="e#1130#1149#0" expanded="true" />
             <element signature="e#1231#1250#0" expanded="true" />
-            <element signature="e#1308#1312#0" expanded="true" />
-            <element signature="e#4522#4541#0" expanded="true" />
-            <element signature="e#5123#5127#0" expanded="true" />
-            <element signature="e#5613#5617#0" expanded="true" />
-            <element signature="e#6102#6106#0" expanded="true" />
-            <element signature="e#6818#6847#0" expanded="true" />
-            <element signature="e#6827#6847#0" expanded="true" />
-            <element signature="e#7052#7071#0" expanded="true" />
-            <element signature="e#7897#7916#0" expanded="true" />
+            <element signature="e#5110#5129#0" expanded="true" />
+            <element signature="e#5711#5715#0" expanded="true" />
+            <element signature="e#6201#6205#0" expanded="true" />
+            <element signature="e#6690#6694#0" expanded="true" />
+            <element signature="e#7406#7435#0" expanded="true" />
+            <element signature="e#7415#7435#0" expanded="true" />
+            <element signature="e#7640#7659#0" expanded="true" />
+            <element signature="e#8082#8101#0" expanded="true" />
           </folding>
         </state>
       </provider>
