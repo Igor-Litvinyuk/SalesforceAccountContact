@@ -4,7 +4,6 @@
     <list default="true" id="ad9adc94-e4c8-4382-ba5f-cff779f1ea42" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/AccountContactService.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountContactService.cls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -125,8 +124,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="242">
+              <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#899#918#0" expanded="true" />
@@ -159,7 +158,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
+            <state relative-caret-position="-2273">
               <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -269,7 +268,7 @@
                   <option name="buildSuccessDatesBySourceRootRelativePath">
                     <map>
                       <entry key="CLASSES/ACCOUNTCONTACTHANDLER.CLS" value="1537512463591" />
-                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537790469676" />
+                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537791077994" />
                       <entry key="CLASSES/ACCOUNTCONTACTTRIGGERTEST.CLS" value="1537790460719" />
                       <entry key="CLASSES/ACCOUNTHANDLER.CLS" value="1536930169936" />
                       <entry key="CLASSES/ACCOUNTTRIGGERTEST.CLS" value="1536930215579" />
@@ -1468,7 +1467,7 @@
       <workItem from="1537511887136" duration="2569000" />
       <workItem from="1537514504718" duration="8305000" />
       <workItem from="1537523895550" duration="8979000" />
-      <workItem from="1537768909881" duration="21634000" />
+      <workItem from="1537768909881" duration="21738000" />
     </task>
     <task id="LOCAL-00001" summary="AccountContactTrigger was edited">
       <created>1536571789669</created>
@@ -1603,7 +1602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537781385753</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Refactoring">
+      <created>1537791155067</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1537791155067</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1639,7 +1645,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223306000" />
+    <option name="totallyTimeSpent" value="223410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1845,9 +1851,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
+        <state relative-caret-position="-2273">
           <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1858,17 +1871,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="242">
+          <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#899#918#0" expanded="true" />
