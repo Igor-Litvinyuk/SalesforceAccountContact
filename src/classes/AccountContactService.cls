@@ -10,8 +10,6 @@ public with sharing class AccountContactService{
         isFirstRun = true;
     }
 
-    private static List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueForUpdate;
-    private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseForUpdate;
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseToTrue = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueToFalse = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsWithAnotherContact = new List<AccountContact__c>();
@@ -37,22 +35,22 @@ public with sharing class AccountContactService{
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap = getAccountContactsListByContactIdMap(newAccountContacts);
         checkCountOfSameContactsFromTrigger(contactsIdsSet, accountContactsListByContactIdMap);
         distributionAccountContacts(oldAccountContacts, newAccountContacts);
-        Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = getContactIdsSet(accountContactsWithIsPrimaryFieldFalseToTrue);
-        accountContactsWithIsPrimaryFieldFalseForUpdate = getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldTrue, true);
-        Set<Id> contactsIdsSetWithIsPrimaryFieldFalse = getContactIdsSet(accountContactsWithIsPrimaryFieldTrueToFalse);
-        accountContactsWithIsPrimaryFieldTrueForUpdate = getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldFalse, false);
-        Set<Id> contactsIdsSetWithSpecificContacts = getContactIdsSet(newAccountContacts);
+        Set<Id> contactsIdsSetWithSpecificContacts = getContactIdsSet(accountContactsWithAnotherContact);
         List<AccountContact__c> accountContactsWistSpecificContacts = getAccountContacts(contactsIdsSetWithSpecificContacts);
         changeIsPrimaryField(accountContactsWistSpecificContacts);
     }
 
     public void afterUpdateAccountContacts() {
         if(accountContactsWithIsPrimaryFieldFalseToTrue != null){
-            addAccountContactsForUpdateWithIsPrimaryFieldFalse();
+            Set<Id> contactsIdsSetWithIsPrimaryFieldTrue = getContactIdsSet(accountContactsWithIsPrimaryFieldFalseToTrue);
+            List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseForUpdate = getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldTrue, true);
+            addAccountContactsForUpdateWithIsPrimaryFieldFalse(accountContactsWithIsPrimaryFieldFalseForUpdate);
         }
 
         if(accountContactsWithIsPrimaryFieldTrueToFalse != null){
-            addAccountContactsForUpdateWithIsPrimaryFieldTrue();
+            Set<Id> contactsIdsSetWithIsPrimaryFieldFalse = getContactIdsSet(accountContactsWithIsPrimaryFieldTrueToFalse);
+            List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueForUpdate = getAccountContactsWithSpecificIsPrimaryField(contactsIdsSetWithIsPrimaryFieldFalse, false);
+            addAccountContactsForUpdateWithIsPrimaryFieldTrue(accountContactsWithIsPrimaryFieldTrueForUpdate);
         }
         update accountContactsForUpdate;
     }
@@ -213,7 +211,7 @@ public with sharing class AccountContactService{
         }
     }
 
-    private void addAccountContactsForUpdateWithIsPrimaryFieldFalse(){
+    private void addAccountContactsForUpdateWithIsPrimaryFieldFalse(List<AccountContact__c> accountContactsWithIsPrimaryFieldFalseForUpdate){
         Set<Id> contactsIdsWithIsPrimaryFieldTrue = getContactIdsSet(accountContactsWithIsPrimaryFieldFalseForUpdate);
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldTrue = getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldFalseForUpdate);
         for(Id contactId : contactsIdsWithIsPrimaryFieldTrue){
@@ -223,7 +221,7 @@ public with sharing class AccountContactService{
         }
     }
 
-    private void addAccountContactsForUpdateWithIsPrimaryFieldTrue(){
+    private void addAccountContactsForUpdateWithIsPrimaryFieldTrue(List<AccountContact__c> accountContactsWithIsPrimaryFieldTrueForUpdate){
         Set<Id> contactsIdsPrimaryFieldFalse = getContactIdsSet(accountContactsWithIsPrimaryFieldTrueForUpdate);
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdWithIsPrimaryFieldFalse = getAccountContactsListByContactIdMap(accountContactsWithIsPrimaryFieldTrueForUpdate);
         for(Id contactId : contactsIdsPrimaryFieldFalse){
