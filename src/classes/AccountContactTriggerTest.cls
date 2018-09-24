@@ -149,30 +149,6 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testUpdateAccountContactsInBulkWithSameContact() {
-        accountAndContactInserting();
-        for (Integer i = 0; i < 150; i++){
-            AccountContact__c accountContact = new AccountContact__c();
-            accountContact.Account__c = accounts[i].Id;
-            accountContact.Contact__c = contacts[i].Id;
-            firstHalfListAccountContactsForInsert.add(accountContact);
-            if(i > half){
-                accountContact.Contact__c = contacts[i-half].Id;
-                secondHalfListAccountContactsForInsert.add(accountContact);
-            }
-            accountContactsForUpdate.add(accountContact);
-        }
-        insert firstHalfListAccountContactsForInsert;
-        insert secondHalfListAccountContactsForInsert;
-        try {
-            update accountContactsForUpdate;
-        }
-        catch(Exception e){
-            System.assertEquals(true, true);
-        }
-    }
-
-    @isTest
     static void testUpdateAccountContactsInBulkWithNewContacts() {
         accountAndContactInserting();
         for (Integer i = 0; i < 100; i++){
