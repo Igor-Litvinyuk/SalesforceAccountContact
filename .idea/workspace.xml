@@ -22,7 +22,7 @@
     <session id="-1886864637">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -34,14 +34,14 @@
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.36" value="2" />
+          <entry key="project.open.time.36" value="3" />
           <entry key="project.open.time.37" value="2" />
           <entry key="project.open.time.38" value="3" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.97" value="1" />
-          <entry key="project.opened" value="27" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,15 +57,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="apex" value="511" />
-          <entry key="cls" value="17456" />
+          <entry key="apex" value="518" />
+          <entry key="cls" value="17940" />
           <entry key="trigger" value="676" />
           <entry key="txt" value="183" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Apex" value="18643" />
+          <entry key="Apex" value="19134" />
           <entry key="PLAIN_TEXT" value="183" />
         </counts>
       </usages-collector>
@@ -79,7 +79,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="352">
               <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
             </state>
           </provider>
@@ -124,22 +124,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            <state relative-caret-position="265">
+              <caret line="23" column="134" selection-start-line="23" selection-start-column="134" selection-end-line="23" selection-end-column="134" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#899#918#0" expanded="true" />
-                <element signature="e#1020#1039#0" expanded="true" />
-                <element signature="e#1130#1149#0" expanded="true" />
-                <element signature="e#1231#1250#0" expanded="true" />
-                <element signature="e#5110#5129#0" expanded="true" />
-                <element signature="e#5711#5715#0" expanded="true" />
-                <element signature="e#6201#6205#0" expanded="true" />
-                <element signature="e#6690#6694#0" expanded="true" />
-                <element signature="e#7406#7435#0" expanded="true" />
-                <element signature="e#7415#7435#0" expanded="true" />
-                <element signature="e#7640#7659#0" expanded="true" />
-                <element signature="e#8082#8101#0" expanded="true" />
+                <element signature="e#470#489#0" expanded="true" />
+                <element signature="e#591#610#0" expanded="true" />
+                <element signature="e#701#720#0" expanded="true" />
+                <element signature="e#802#821#0" expanded="true" />
+                <element signature="e#993#1012#0" expanded="true" />
+                <element signature="e#1142#1161#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,7 +151,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2273">
+            <state relative-caret-position="1298">
               <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -181,7 +175,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/ContactTriggerTest.cls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="418">
               <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
               <folding>
                 <element signature="e#175#194#0" expanded="true" />
@@ -255,7 +249,7 @@
       <ProjectWorkspaceSettings>
         <option name="anonymousApexSettings">
           <AnonymousApexSettings>
-            <option name="documentText" value="List&lt;AccountContact__c&gt; accountContacts = new List&lt;AccountContact__c&gt;();&#10;for (Integer i = 0; i &lt; 2; i++) {&#10;    accountContacts.add(new AccountContact__c(Account__c = '0011t000004L5fnAAC', Contact__c = '0031t000003zPMWAA2' , isPrimary__c = false));&#10;}&#10;insert accountContacts;&#10;&#10;" />
+            <option name="documentText" value="List&lt;AccountContact__c&gt; accountContacts = new List&lt;AccountContact__c&gt;();&#10;for (Integer i = 0; i &lt; 5; i++) {&#10;    accountContacts.add(new AccountContact__c(Account__c = '0011t000004L5fnAAC', Contact__c = '0031t000003zPMWAA2' , isPrimary__c = false));&#10;}&#10;insert accountContacts;&#10;&#10;" />
             <option name="splitterProportion" value="0.39597833" />
           </AnonymousApexSettings>
         </option>
@@ -267,7 +261,7 @@
                   <option name="buildSuccessDatesBySourceRootRelativePath">
                     <map>
                       <entry key="CLASSES/ACCOUNTCONTACTHANDLER.CLS" value="1537512463591" />
-                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537796027219" />
+                      <entry key="CLASSES/ACCOUNTCONTACTSERVICE.CLS" value="1537856500244" />
                       <entry key="CLASSES/ACCOUNTCONTACTTRIGGERTEST.CLS" value="1537790460719" />
                       <entry key="CLASSES/ACCOUNTHANDLER.CLS" value="1536930169936" />
                       <entry key="CLASSES/ACCOUNTTRIGGERTEST.CLS" value="1536930215579" />
@@ -1165,7 +1159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1205,7 +1199,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -1466,7 +1460,8 @@
       <workItem from="1537511887136" duration="2569000" />
       <workItem from="1537514504718" duration="8305000" />
       <workItem from="1537523895550" duration="8979000" />
-      <workItem from="1537768909881" duration="26831000" />
+      <workItem from="1537768909881" duration="28154000" />
+      <workItem from="1537853926194" duration="2882000" />
     </task>
     <task id="LOCAL-00001" summary="AccountContactTrigger was edited">
       <created>1536571789669</created>
@@ -1615,7 +1610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537791199954</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Refactoring">
+      <created>1537796324707</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1537796324707</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1651,13 +1653,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228503000" />
+    <option name="totallyTimeSpent" value="232708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914822" visible="true" weight="0.08742005" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914822" visible="true" weight="0.08795309" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1801,6 +1803,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactHandler.cls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountHandler.cls">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1828,45 +1847,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/ContactHandler.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountContactHandler.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/ContactTriggerTest.cls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="e#175#194#0" expanded="true" />
-            <element signature="e#250#259#0" expanded="true" />
-            <element signature="e#315#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/triggers/AccountContactTrigger.trigger">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountContactTriggerTest.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2273">
+        <state relative-caret-position="1298">
           <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1877,24 +1860,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/ContactHandler.cls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/ContactTriggerTest.cls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="e#175#194#0" expanded="true" />
+            <element signature="e#250#259#0" expanded="true" />
+            <element signature="e#315#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AccountContactService.cls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        <state relative-caret-position="265">
+          <caret line="23" column="134" selection-start-line="23" selection-start-column="134" selection-end-line="23" selection-end-column="134" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#899#918#0" expanded="true" />
-            <element signature="e#1020#1039#0" expanded="true" />
-            <element signature="e#1130#1149#0" expanded="true" />
-            <element signature="e#1231#1250#0" expanded="true" />
-            <element signature="e#5110#5129#0" expanded="true" />
-            <element signature="e#5711#5715#0" expanded="true" />
-            <element signature="e#6201#6205#0" expanded="true" />
-            <element signature="e#6690#6694#0" expanded="true" />
-            <element signature="e#7406#7435#0" expanded="true" />
-            <element signature="e#7415#7435#0" expanded="true" />
-            <element signature="e#7640#7659#0" expanded="true" />
-            <element signature="e#8082#8101#0" expanded="true" />
+            <element signature="e#470#489#0" expanded="true" />
+            <element signature="e#591#610#0" expanded="true" />
+            <element signature="e#701#720#0" expanded="true" />
+            <element signature="e#802#821#0" expanded="true" />
+            <element signature="e#993#1012#0" expanded="true" />
+            <element signature="e#1142#1161#0" expanded="true" />
           </folding>
         </state>
       </provider>

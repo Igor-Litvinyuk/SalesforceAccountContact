@@ -18,30 +18,34 @@ public with sharing class AccountContactService{
     private static List<AccountContact__c> accountContactsForUpdate = new List<AccountContact__c>();
 
     public void insertNewAccountContacts(List<AccountContact__c> newAccountContacts) {
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = new List<AccountContact__c>();
+        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = new List<AccountContact__c>();
         Set<Id> contactsIdsSet = getContactIdsSet(newAccountContacts);
         Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap = getAccountContactsListByContactIdMap(newAccountContacts);
-        for (AccountContact__c accountContact : newAccountContacts){
-            List<AccountContact__c> accountContacts = accountContactsListByContactIdMap.get(accountContact.Contact__c);
+        for (Id contactId : contactsIdsSet){
+            List<AccountContact__c> accountContacts = accountContactsListByContactIdMap.get(contactId);
             Integer count = 0;
-            for (AccountContact__c accountCont : accountContacts){
-                if (accountCont.isPrimary__c == true){
+            for (AccountContact__c accountContact : accountContacts){
+                if (accountContact.isPrimary__c == true){
+                    accountContactsWithIsPrimaryFieldTrue.add(accountContact);
                     count++;
                 }
             }
-            if (count > 1){
+            if (count == 0){
+                accountContactsWithIsPrimaryFieldFalse.add(accountContacts[0]);
+            }
+            else if (count > 1){
                 throw new AccountContactException('Only one AccountContact with specific Contact can have isPrimary field true!');
             }
         }
         List<AccountContact__c> accountContacts = getAccountContacts(contactsIdsSet);
         Map<Id, List<AccountContact__c>> accountContactsListByContactId = getAccountContactsListByContactIdMap(accountContacts);
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = getAccountContactsListWithSpecificIsPrimaryField(newAccountContacts, true);
         for (AccountContact__c accountContact: accountContactsWithIsPrimaryFieldTrue){
             List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
             if (accountContactsList != null){
                 accountContact.IsPrimary__c = false;
             }
         }
-        List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = getAccountContactsListWithSpecificIsPrimaryField(newAccountContacts, false);
         for (AccountContact__c accountContact: accountContactsWithIsPrimaryFieldFalse){
             List<AccountContact__c> accountContactsList = accountContactsListByContactId.get(accountContact.Contact__c);
             if (accountContactsList == null){
