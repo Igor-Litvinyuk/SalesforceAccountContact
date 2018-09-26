@@ -14,7 +14,6 @@ public with sharing class AccountContactService{
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsWithAnotherIsPrimaryField = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsWithAnotherContact = new List<AccountContact__c>();
-    private static List<AccountContact__c> accountContactsWithAnotherAccount = new List<AccountContact__c>();
     private static Set<Id> contactsIdsForUpdate = new Set<Id>();
     private static List<AccountContact__c> allAccountContactsWithIsPrimaryFieldTrue;
     private static List<AccountContact__c> allAccountContactsWithIsPrimaryFieldFalse;
@@ -35,7 +34,6 @@ public with sharing class AccountContactService{
 
     public void beforeUpdateAccountContacts(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts) {
         distributeAccountContactsForUpdate(oldAccountContacts, newAccountContacts);
-        validateAccountContacts();
         if (!accountContactsWithAnotherIsPrimaryField.isEmpty()){
             Set<Id> contactsIdsSet = getContactIdsSet(accountContactsWithAnotherIsPrimaryField);
             Map<Id, List<AccountContact__c>> accountContactsListByContactIdMap = getAccountContactsListByContactIdMap(accountContactsWithAnotherIsPrimaryField);
@@ -256,31 +254,36 @@ public with sharing class AccountContactService{
 
     private void distributeAccountContactsForUpdate(List<AccountContact__c> oldAccountContacts, List<AccountContact__c> newAccountContacts){
         for (Integer i = 0; i < oldAccountContacts.size(); i++){
-            if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c){
-                accountContactsWithAnotherAccount.add(newAccountContacts[i]);
+            if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c
+                    && oldAccountContacts[i].isPrimary__c == newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Contact__c == newAccountContacts[i].Contact__c){
+                continue;
             }
-            if (oldAccountContacts[i].isPrimary__c != newAccountContacts[i].isPrimary__c){
+            if (oldAccountContacts[i].isPrimary__c != newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Account__c == newAccountContacts[i].Account__c
+                    && oldAccountContacts[i].Contact__c == newAccountContacts[i].Contact__c){
                 accountContactsWithAnotherIsPrimaryField.add(newAccountContacts[i]);
             }
-            if (oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c) {
+            else if (oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c
+                    && oldAccountContacts[i].isPrimary__c == newAccountContacts[i].isPrimary__c
+                    && oldAccountContacts[i].Account__c == newAccountContacts[i].Account__c){
                 accountContactsWithAnotherContact.add(newAccountContacts[i]);
             }
-        }
-    }
-
-    private void validateAccountContacts(){
-        Boolean isValid = true;
-        if (!accountContactsWithAnotherAccount.isEmpty() && !accountContactsWithAnotherIsPrimaryField.isEmpty()){
-            isValid = false;
-        }
-        if (!accountContactsWithAnotherIsPrimaryField.isEmpty() && !accountContactsWithAnotherContact.isEmpty()){
-            isValid = false;
-        }
-        if (!accountContactsWithAnotherAccount.isEmpty() && !accountContactsWithAnotherContact.isEmpty()){
-            isValid = false;
-        }
-        if (!isValid){
-            throw new AccountContactException('You can not change more than one field at a time');
+            else if (oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c
+                    && (oldAccountContacts[i].isPrimary__c != newAccountContacts[i].isPrimary__c
+                    || oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c)){
+                throw new AccountContactException('You can not change more than one field at a time');
+            }
+            else if (oldAccountContacts[i].Contact__c!= newAccountContacts[i].Contact__c
+                    && (oldAccountContacts[i].isPrimary__c != newAccountContacts[i].isPrimary__c
+                    || oldAccountContacts[i].Account__c != newAccountContacts[i].Account__c)){
+                throw new AccountContactException('You can not change more than one field at a time');
+            }
+            else if (oldAccountContacts[i].isPrimary__c != newAccountContacts[i].isPrimary__c
+                    && (oldAccountContacts[i].isPrimary__c != newAccountContacts[i].isPrimary__c
+                    || oldAccountContacts[i].Contact__c != newAccountContacts[i].Contact__c)){
+                throw new AccountContactException('You can not change more than one field at a time');
+            }
         }
     }
 
