@@ -6,17 +6,30 @@
 private class AccountContactTriggerTest {
 
     private static final Integer half = 100;
-    private static List<Account> accounts = new List<Account>();
-    private static List<Contact> contacts = new List<Contact>();
     private static List<AccountContact__c> accountContactsForDelete = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsForInsert = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsForUpdate = new List<AccountContact__c>();
     private static List<AccountContact__c> firstHalfListAccountContactsForInsert = new List<AccountContact__c>();
     private static List<AccountContact__c> secondHalfListAccountContactsForInsert = new List<AccountContact__c>();
+    private static List<Account> accounts = [SELECT Id FROM Account];
+    private static List<Contact> contacts = [SELECT Id FROM Contact];
+
+    @testSetup
+    static void setup() {
+        List<Account> accountsForInsert = new List<Account>();
+        List<Contact> contactsForInsert = new List<Contact>();
+        for(Integer i = 0; i < 200; i++) {
+            Account account = new Account(Name = 'Test Account ' + i);
+            accountsForInsert.add(account);
+            Contact contact = new Contact(LastName = 'Test Contact ' + i);
+            contactsForInsert.add(contact);
+        }
+        insert accountsForInsert;
+        insert contactsForInsert;
+    }
 
     @isTest
     static void testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -38,7 +51,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testCreateNewAccountContactsInBulkWithIsPrimaryFieldTrueOnSpecificContact() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -56,7 +68,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testCreateNewAccountContactsWithIsPrimaryFieldTrue() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -85,7 +96,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testUpdateAccountContactsWhenChangeAccount() {
-        accountAndContactInserting();
         AccountContact__c accountContact = new AccountContact__c();
         accountContact.Account__c = accounts[0].Id;
         accountContact.Contact__c = contacts[1].Id;
@@ -98,7 +108,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testUpdateAccountContactsWithIsPrimaryFieldTrue() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -130,7 +139,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testUpdateAccountContactsWithIsPrimaryFieldFalse() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -161,7 +169,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testUpdateAccountContactsInBulkWithNewContacts() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 100; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -182,7 +189,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testUpdateAccountContactsInBulkWithExistsContacts() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -204,7 +210,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testDeleteAccountContactsInBulkWithChangingCheckboxOnAnotherAccountContact() {
-        accountAndContactInserting();
         for (Integer i = 0; i < 100; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -230,7 +235,6 @@ private class AccountContactTriggerTest {
 
     @isTest
     static void testDeleteOneLastAccountContactWith() {
-        accountAndContactInserting();
         AccountContact__c accountContact1 = new AccountContact__c();
         accountContact1.Account__c = accounts[0].Id;
         accountContact1.Contact__c = contacts[0].Id;
@@ -238,16 +242,5 @@ private class AccountContactTriggerTest {
         delete accountContact1;
         List<AccountContact__c> verifyAccountContacts = [SELECT Id, isPrimary__c FROM AccountContact__c];
         System.assertEquals(0, verifyAccountContacts.size());
-    }
-
-    private static void accountAndContactInserting(){
-        for(Integer i = 0; i < 200; i++) {
-            Account account = new Account(Name = 'Test Account ' + i);
-            accounts.add(account);
-            Contact contact = new Contact(LastName = 'Test Contact ' + i);
-            contacts.add(contact);
-        }
-        insert accounts;
-        insert contacts;
     }
 }
