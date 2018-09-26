@@ -3,7 +3,7 @@
  */
 
 @isTest
-private class AccountContactTriggerTest {
+private class AccountContactTriggerTest{
 
     private static final Integer half = 100;
     private static List<AccountContact__c> accountContactsForDelete = new List<AccountContact__c>();
@@ -15,7 +15,7 @@ private class AccountContactTriggerTest {
     private static List<Contact> contacts = [SELECT Id FROM Contact];
 
     @testSetup
-    static void setup() {
+    static void setup(){
         List<Account> accountsForInsert = new List<Account>();
         List<Contact> contactsForInsert = new List<Contact>();
         for(Integer i = 0; i < 200; i++) {
@@ -29,7 +29,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk() {
+    static void testCreateNewAccountContactsWithDifferentIsPrimaryFieldsInBulk(){
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -50,7 +50,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testCreateNewAccountContactsInBulkWithIsPrimaryFieldTrueOnSpecificContact() {
+    static void testCreateNewAccountContactsInBulkWithIsPrimaryFieldTrueOnSpecificContact(){
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -67,7 +67,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testCreateNewAccountContactsWithIsPrimaryFieldTrue() {
+    static void testCreateNewAccountContactsWithIsPrimaryFieldTrue(){
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -95,7 +95,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testUpdateAccountContactsWhenChangeAccount() {
+    static void testUpdateAccountContactsWhenChangeAccount(){
         AccountContact__c accountContact = new AccountContact__c();
         accountContact.Account__c = accounts[0].Id;
         accountContact.Contact__c = contacts[1].Id;
@@ -107,7 +107,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testUpdateAccountContactsWithIsPrimaryFieldTrue() {
+    static void testUpdateAccountContactsWithIsPrimaryFieldTrue(){
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -138,7 +138,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testUpdateAccountContactsWithIsPrimaryFieldFalse() {
+    static void testUpdateAccountContactsWithIsPrimaryFieldFalse(){
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -168,7 +168,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testUpdateAccountContactsInBulkWithNewContacts() {
+    static void testUpdateAccountContactsInBulkWithNewContacts(){
         for (Integer i = 0; i < 100; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -188,7 +188,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testUpdateAccountContactsInBulkWithExistsContacts() {
+    static void testUpdateAccountContactsInBulkWithExistsContacts(){
         for (Integer i = 0; i < 200; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -209,7 +209,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testDeleteAccountContactsInBulkWithChangingCheckboxOnAnotherAccountContact() {
+    static void testDeleteAccountContactsInBulkWithChangingCheckboxOnAnotherAccountContact(){
         for (Integer i = 0; i < 100; i++){
             AccountContact__c accountContact = new AccountContact__c();
             accountContact.Account__c = accounts[i].Id;
@@ -234,7 +234,7 @@ private class AccountContactTriggerTest {
     }
 
     @isTest
-    static void testDeleteOneLastAccountContactWith() {
+    static void testDeleteOneLastAccountContactWith(){
         AccountContact__c accountContact1 = new AccountContact__c();
         accountContact1.Account__c = accounts[0].Id;
         accountContact1.Contact__c = contacts[0].Id;

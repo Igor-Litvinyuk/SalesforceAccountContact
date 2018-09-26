@@ -2,7 +2,7 @@
  * Created by Igor Litvinyuk on 04.09.2018.
  */
 
-trigger AccountContactTrigger on AccountContact__c (before insert, before update, after update, after delete) {
+trigger AccountContactTrigger on AccountContact__c (before insert, before update, after update, after delete){
 
     AccountContactHandler handler = new AccountContactHandler();
 

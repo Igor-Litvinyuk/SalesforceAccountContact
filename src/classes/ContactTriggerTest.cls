@@ -3,14 +3,14 @@
  */
 
 @isTest
-private class ContactTriggerTest {
+private class ContactTriggerTest{
 
     private static List<AccountContact__c> accountContactsForInsert = new List<AccountContact__c>();
     private static List<Account> accounts = new List<Account>();
     private static List<Contact> contacts = new List<Contact>();
 
     @isTest
-    static void TestDeleteContact() {
+    static void TestDeleteContact(){
         for (Integer i = 0; i < 200; i++) {
             Account account = new Account(Name = 'Test Account ' + i);
             accounts.add(account);
