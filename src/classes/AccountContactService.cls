@@ -4,11 +4,7 @@
 
 public with sharing class AccountContactService{
 
-    public static boolean isFirstRun;
-
-    static {
-        isFirstRun = true;
-    }
+    public static boolean isFirstRun = true;
 
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldTrue = new List<AccountContact__c>();
     private static List<AccountContact__c> accountContactsWithIsPrimaryFieldFalse = new List<AccountContact__c>();
